@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useCart } from './CartContext';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import Swal from 'sweetalert2';
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Cart = () => {
+    const navigate = useNavigate();
     const { cartItems, setCartItems, clearCart, updateCart } = useCart();
     const [showCheckout, setShowCheckout] = useState(false);
     const [userData, setUserData] = useState({
